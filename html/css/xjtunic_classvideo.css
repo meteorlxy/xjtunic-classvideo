@@ -1,7 +1,7 @@
 /*
  * CSS stylesheet for xjtunic_classvideo (Modified from Jplayer.js - skin blue.monday)
  * 
- * Author : Alex Liu (Liu Xinyu)
+ * Author : Meteor.lxy(meteor.lxy@foxmail.com)
  *
  * Modified date : 2016/05/07
  */
@@ -162,7 +162,7 @@ body{
 .cv-volume-controls {
 	position:absolute;
 	top:12px;
-	left:280px;
+	right:200px;
 	width:200px;
 }
 .cv-volume-controls button {
@@ -266,10 +266,10 @@ body{
 	margin:0 auto;
 	overflow:hidden;
 	position:absolute;
-	right:280px;
+	right:200px;
 	margin:0;
 	margin-top:10px;
-	width:100px;
+	width:50px;
 }
 .cv-toggles button {
 	display:block;
@@ -314,7 +314,7 @@ body{
 	margin:0 auto;
 	overflow:hidden;
 	position:absolute;
-	right:120px;
+	left:250px;
 	margin:0;
 	width:140px;
 	height:100%;
@@ -359,6 +359,50 @@ body{
 }
 .cv-btn-select:focus{
 	outline: 0;
+}
+
+/*div-select-src*/
+.cv-select-src{
+	padding:0;
+	margin:0 auto;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	margin:0;
+	width:220px;
+	height:100%;
+}
+.cv-btn-select-src{
+	width:80px;
+	height:35px;
+	color:#000000;
+	background-color:#c8cacc;
+	font-size:16px;
+	font-weight:normal;
+	font-family:Arial;
+	border:0px solid #dcdcdc;
+	-webkit-border-top-left-radius:7px;
+	-moz-border-radius-topleft:7px;
+	border-top-left-radius:7px;
+	-webkit-border-top-right-radius:7px;
+	-moz-border-radius-topright:7px;
+	border-top-right-radius:7px;
+	-webkit-border-bottom-left-radius:7px;
+	-moz-border-radius-bottomleft:7px;
+	border-bottom-left-radius:7px;
+	-webkit-border-bottom-right-radius:7px;
+	-moz-border-radius-bottomright:7px;
+	border-bottom-right-radius:7px;
+	-moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	box-shadow: inset 0px 0px 0px 0px #ffffff;
+	text-align:center;
+	display:inline-block;
+	text-decoration:none;
+	cursor: pointer;
+}
+.cv-btn-select-src:hover{
+	background-color:#4a8cf7;
 }
 /*****************************************************************/
 

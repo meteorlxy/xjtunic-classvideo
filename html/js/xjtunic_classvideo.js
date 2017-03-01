@@ -18,13 +18,14 @@ $(function(){
 		$(".cv-text-currenttime").html(timeFormat($(this)[0].currentTime));
 		$(".cv-text-duration").html(timeFormat($(this)[0].duration));
 		$(".cv-volume-bar-value").css("width", 100 * $("#player_1")[0].volume + "%");
-	});
-	$("#player_1").on("timeupdate", function(){
+	}).on("timeupdate", function(){
 		if($("#player_1")[0].ended){
 			$(".cv-btn-stop").trigger("click");
 		}
 		$(".cv-text-currenttime").html(timeFormat($(this)[0].currentTime));
 		$(".cv-playbar").css("width", 100 * $(this)[0].currentTime / $(this)[0].duration + "%");
+	}).on('ended', function(){
+		$('#btn-src-next').trigger('click');
 	});
 	var timeFormat = function(seconds){
 		var h = Math.floor(seconds/3600)<10 ? "0"+Math.floor(seconds/3600) : Math.floor(seconds/3600);
@@ -145,11 +146,6 @@ $(function(){
 	
 	/*******************************/
 	/*toggles : repeat & fullscreen*/
-	$(".cv-btn-repeat").on("click",function(){
-		$(".cv-main-container").toggleClass("cv-state-looped");
-		$(".cv-main-container.cv-state-looped .cv-video-player").each(function(){$(this)[0].loop = true;});
-		$(".cv-main-container:not(.cv-state-looped) .cv-video-player").each(function(){$(this)[0].loop = false;});
-	});
 	$(".cv-btn-fullscreen").on("click",function(){
 		$(".cv-state-fullscreen").css("height", '');
 		$(".cv-main-container").toggleClass("cv-state-fullscreen");
@@ -182,4 +178,27 @@ $(function(){
 		}
 	});
 	/*******************************/
+
+	/*******************************/
+	/*select-video-src*/
+	$('.cv-select-src').on('click', '#btn-src-next', function(){
+		var videoNum = $('.cv-select-src').data('src-folder') + 1;
+		$('.cv-select-src').data('src-folder', videoNum);
+		setVideoNum(videoNum);
+	}).on('click', '#btn-src-prev', function(){
+		var videoNum = $('.cv-select-src').data('src-folder') - 1;
+		$('.cv-select-src').data('src-folder', videoNum);
+		setVideoNum(videoNum);
+	});
+	
+	function setVideoNum(num) {
+		$('#player_1').attr('src', '../video/'+num+'/video_01.mp4');
+		$('#player_2').attr('src', '../video/'+num+'/video_02.mp4');
+		$('#player_3').attr('src', '../video/'+num+'/video_03.mp4');
+		$("#btn-stop").trigger('click');
+		$("#btn-play").trigger('click');		
+	}
+	setVideoNum(1);
+
+	/*******************************/	
 });

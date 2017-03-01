@@ -1,0 +1,379 @@
+/*
+ * CSS stylesheet for xjtunic_classvideo (Modified from Jplayer.js - skin blue.monday)
+ * 
+ * Author : Alex Liu (Liu Xinyu)
+ *
+ * Modified date : 2016/05/07
+ */
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background-image: url(./bg_img.jpg);
+	background-size: 100% 100%;
+}
+
+/*************************************/
+/*div-container : normal & fullscreen*/
+.cv-main-container{
+	position: relative;
+	box-sizing:border-box;
+	width: 1200px;
+	height: 600px;
+	margin:0 auto;
+	font-size:16px;
+	font-family:Verdana, Arial, sans-serif;
+	line-height:1.6;
+	color: #666;
+	background-color:black;
+}
+.cv-state-fullscreen {
+	width: 100% !important;
+	margin: 0;
+	min-width: 1200px;
+	min-height: 600px;
+}
+/***********************************************/
+
+
+/********************************************/
+/*div-player : main & righttop & rightbottom*/
+.cv-player-main{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 66.67%;
+	height: 100%;
+	z-index: 1000;
+}
+.cv-player-righttop{
+	position: absolute;
+	left: 66.66%;
+	top: 0;
+	width: 33.34%;
+	height: 50%;
+}
+.cv-player-rightbottom{
+	position: absolute;
+	left: 66.66%;
+	top: 50%;
+	width: 33.34%;
+	height: 50%;
+}
+.cv-player-left{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	z-index: 1999;
+}
+.cv-player-right{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	z-index: 1999;
+}
+.cv-player-only{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+}
+.cv-video-player{
+	clear:both;
+	display:block;
+	margin:auto;
+	background-color:black;
+}
+.cv-toolbar{
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	bottom: -100px;
+	background-color:#eee;
+}
+/*******************************************/
+
+
+/****************/
+/* div-time-bar */
+.cv-progress {
+	overflow:hidden;
+	background-color: #ddd;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:10px;
+}
+
+.cv-seekbar {
+	background: url("control-bar.jpg") 0 -202px repeat-x;
+	width:100%;
+	height:100%;
+	cursor: pointer;
+}
+.cv-playbar {
+	background: url("control-bar.jpg") 0 -218px repeat-x ;
+	width:0px;
+	height:100%;
+}
+/****************/
+
+/***********************************/
+/*div-time : currenttime & duration*/
+.cv-text-currenttime{
+	float: left;
+	display:inline;
+	cursor:default;
+	font-size:.64em;
+	width:60px;
+	margin-left:20px;
+}
+.cv-text-duration{
+	float: right;
+	display:inline;
+	text-align: right;
+	cursor:default;
+	font-size:.64em;
+	width:60px;
+	margin-right:20px;
+}
+/***********************************/
+
+/*****************************************************************/
+/*div-controls-holder : play-controls & volume-controls & toggles*/
+.cv-controls-holder {
+	clear: both;
+	width:1000px;
+	margin:0 auto;
+	position: relative;
+	overflow:hidden;
+	top:-8px; /* This negative value depends on the size of the text in jp-currentTime and jp-duration */
+}
+/*div-volume-controls*/
+.cv-volume-controls {
+	position:absolute;
+	top:12px;
+	left:280px;
+	width:200px;
+}
+.cv-volume-controls button {
+	display:block;
+	position: absolute;
+	overflow:hidden;
+	text-indent:-9999px;
+	border:none;
+	cursor:pointer;
+}
+.cv-btn-mute,.cv-btn-volume-max {
+	width:18px;
+	height:15px;
+}
+.cv-btn-volume-max {
+	left:74px;
+}
+.cv-btn-mute {
+	background: url("control-bar.jpg") 0 -170px no-repeat;
+}
+.cv-btn-mute:focus {
+	background: url("control-bar.jpg") -19px -170px no-repeat;
+}
+.cv-state-muted .cv-btn-mute {
+	background: url("control-bar.jpg") -60px -170px no-repeat;
+}
+.cv-state-muted .cv-btn-mute:focus {
+	background: url("control-bar.jpg") -79px -170px no-repeat;
+}
+.cv-btn-volume-max {
+	background: url("control-bar.jpg") 0 -186px no-repeat;
+}
+.cv-btn-volume-max:focus {
+	background: url("control-bar.jpg") -19px -186px no-repeat;
+}
+.cv-volume-bar {
+	position: absolute;
+	overflow:hidden;
+	background: url("control-bar.jpg") 0 -250px repeat-x;
+	top:5px;
+	left:22px;
+	width:46px;
+	height:5px;
+	cursor: pointer;
+}
+.cv-volume-bar-value {
+	background: url("control-bar.jpg") 0 -256px repeat-x;
+	width:0px;
+	height:5px;
+}
+
+/*div-play-controls*/
+.cv-play-controls {
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+	width: 78px;
+	margin-left: 461px;
+	float: left;
+}
+.cv-play-controls button {
+	display:block;
+	float: left;
+	overflow:hidden;
+	text-indent:-9999px;
+	border:none;
+	cursor:pointer;
+}
+.cv-btn-play {
+	width:40px;
+	height:40px;
+}
+.cv-btn-play {
+	background: url("control-bar.jpg") 0 0 no-repeat;
+}
+.cv-btn-play:focus {
+	background: url("control-bar.jpg") -41px 0 no-repeat;
+}
+.cv-state-playing .cv-btn-play {
+	background: url("control-bar.jpg") 0 -42px no-repeat;
+}
+.cv-state-playing .cv-btn-play:focus {
+	background: url("control-bar.jpg") -41px -42px no-repeat;
+}
+.cv-btn-stop{
+	width:28px;
+	height:28px;
+	margin-top:6px;
+}
+.cv-btn-stop {
+	background: url("control-bar.jpg") 0 -83px no-repeat;
+	margin-left:10px;
+}
+.cv-btn-stop:focus {
+	background: url("control-bar.jpg") -29px -83px no-repeat;
+}
+
+/*div-toggles : btn-repeat & btn-fullscreen*/
+.cv-toggles {
+	padding:0;
+	margin:0 auto;
+	overflow:hidden;
+	position:absolute;
+	right:280px;
+	margin:0;
+	margin-top:10px;
+	width:100px;
+}
+.cv-toggles button {
+	display:block;
+	float:left;
+	width:25px;
+	height:18px;
+	text-indent:-9999px;
+	line-height:100%; /* need this for IE6 */
+	border:none;
+	cursor:pointer;
+}
+/*fullscreen*/
+.cv-btn-fullscreen {
+	background: url("control-bar.jpg") 0 -310px no-repeat;
+	margin-left: 20px;
+}
+.cv-btn-fullscreen:focus {
+	background: url("control-bar.jpg") -30px -310px no-repeat;
+}
+.cv-state-fullscreen .cv-btn-fullscreen {
+	background: url("control-bar.jpg") -60px -310px no-repeat;
+}
+.cv-state-fullscreen .cv-btn-fullscreen:focus {
+	background: url("control-bar.jpg") -90px -310px no-repeat;
+}
+/*repeat*/
+.cv-btn-repeat {
+	background: url("control-bar.jpg") 0 -290px no-repeat;
+}
+.cv-btn-repeat:focus {
+	background: url("control-bar.jpg") -30px -290px no-repeat;
+}
+.cv-state-looped .cv-btn-repeat {
+	background: url("control-bar.jpg") -60px -290px no-repeat;
+}
+.cv-state-looped .cv-btn-repeat:focus {
+	background: url("control-bar.jpg") -90px -290px no-repeat;
+}
+/*div-select-fullscreen*/
+.cv-select{
+	padding:0;
+	margin:0 auto;
+	overflow:hidden;
+	position:absolute;
+	right:120px;
+	margin:0;
+	width:140px;
+	height:100%;
+}
+.cv-btn-select{
+	width:40px;
+	height:40px;
+	color:#000000;
+	background-color:#c8cacc;
+	font-size:16px;
+	font-weight:normal;
+	font-family:Arial;
+	border:0px solid #dcdcdc;
+	-webkit-border-top-left-radius:7px;
+	-moz-border-radius-topleft:7px;
+	border-top-left-radius:7px;
+	-webkit-border-top-right-radius:7px;
+	-moz-border-radius-topright:7px;
+	border-top-right-radius:7px;
+	-webkit-border-bottom-left-radius:7px;
+	-moz-border-radius-bottomleft:7px;
+	border-bottom-left-radius:7px;
+	-webkit-border-bottom-right-radius:7px;
+	-moz-border-radius-bottomright:7px;
+	border-bottom-right-radius:7px;
+	-moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	box-shadow: inset 0px 0px 0px 0px #ffffff;
+	text-align:center;
+	display:inline-block;
+	text-decoration:none;
+	cursor: pointer;
+}
+.cv-btn-select:hover{
+	background-color:#d3d3d3;
+}
+.cv-btn-select-selected{
+	background-color:#4a8cf7;
+}
+.cv-btn-select-selected:hover{
+	background-color:#5191ff;
+}
+.cv-btn-select:focus{
+	outline: 0;
+}
+/*****************************************************************/
+
+.cv-details {
+	font-weight:bold;
+	text-align:center;
+	cursor:default;
+	width:100%;
+	background-color:#ccc;
+	border-top:1px solid #009be3;
+	border-top:none;
+}
+.cv-details .cv-title {
+	margin:0;
+	padding:5px 20px;
+	font-size:.72em;
+	font-weight:bold;
+}
